@@ -1,7 +1,7 @@
 import csv  
 import os 
 
-FILE="expenditure.csv" 
+FILE="expenses.csv" 
 FIELDS=["id","date","category","description","amount"]
 
 def initialize_file():
@@ -11,3 +11,10 @@ def initialize_file():
             writer.writeheader()
 
 initialize_file()
+
+def read_expenses():
+    with open(FILE, mode='r', newline='') as f:
+       reader=csv.DictReader(f)
+       return list(reader) 
+
+read_expenses()
